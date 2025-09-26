@@ -36,7 +36,7 @@ export default function Login() {
         "Enter Valid Password"
       ),
   });
-  let registerForm = useForm({
+  const registerForm = useForm({
     defaultValues: {
       email: "",
       password: "",

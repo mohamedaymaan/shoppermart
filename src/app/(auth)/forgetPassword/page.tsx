@@ -12,7 +12,6 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
@@ -23,7 +22,7 @@ export default function ForgetPassword() {
       .nonempty("Email is Required")
       .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),
   });
-  let ForgetForm = useForm({
+  const ForgetForm = useForm({
     defaultValues: {
       email: "",
     },

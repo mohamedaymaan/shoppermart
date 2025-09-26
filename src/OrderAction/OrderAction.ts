@@ -8,7 +8,7 @@ export async function checkoutPayment(
   cardId: string,
   shippingData: { details: string; phone: string; city: string }
 ) {
-  const token: any = await getUserToken();
+  const token = await getUserToken();
   if (!token) {
     throw new Error("token Error");
   }
@@ -21,7 +21,7 @@ export async function checkoutPayment(
       }),
       headers: {
         "content-type": "application/json",
-        token: token,
+        token: token as string,
       },
     }
   );
@@ -34,7 +34,7 @@ export async function cashOrder(
   cardId: string,
   shippingData: { details: string; phone: string; city: string }
 ) {
-  const token: any = await getUserToken();
+  const token = await getUserToken();
   if (!token) {
     throw new Error("token Error");
   }
@@ -47,7 +47,7 @@ export async function cashOrder(
       }),
       headers: {
         "content-type": "application/json",
-        token: token,
+        token: token as string,
       },
     }
   );

@@ -50,7 +50,7 @@ export default function Register() {
         error: "Confirm Password Not Match",
       }
     );
-  let registerForm = useForm({
+  const registerForm = useForm({
     defaultValues: {
       name: "",
       email: "",

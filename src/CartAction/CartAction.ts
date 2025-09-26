@@ -4,13 +4,13 @@ import { CartData } from "@/types/cart.type";
 import { error } from "console";
 
 export async function getCartData() {
-  const token: any = await getUserToken();
+  const token = await getUserToken();
   if (!token) {
     throw new Error("token Error");
   }
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/cart`, {
     headers: {
-      token: token,
+      token: token as string,
     },
   });
   console.log(token);
@@ -19,7 +19,7 @@ export async function getCartData() {
 }
 
 export async function AddProductToCart(id: string) {
-  const token: any = await getUserToken();
+  const token = await getUserToken();
   if (!token) {
     throw new Error("token Error");
   }
@@ -29,7 +29,7 @@ export async function AddProductToCart(id: string) {
       productId: id,
     }),
     headers: {
-      token: token,
+      token: token as string,
       "content-type": "application/json",
     },
   });
@@ -38,14 +38,14 @@ export async function AddProductToCart(id: string) {
 }
 
 export async function DeleteProduct(id: string) {
-  const token: any = await getUserToken();
+  const token = await getUserToken();
   if (!token) {
     throw new Error("token Error");
   }
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/cart/${id}`,{
     method:"delete",
     headers:{
-      token:token
+      token:token as string
     }
   })
   const data = await res.json();
@@ -54,14 +54,14 @@ export async function DeleteProduct(id: string) {
 
 
 export async function ClearProducts(){
-  const token: any = await getUserToken();
+  const token = await getUserToken();
   if (!token) {
     throw new Error("token Error");
   }
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/cart`,{
     method:"delete",
     headers:{
-      token:token
+      token:token as string
     }
   })
   const data = await res.json();
@@ -69,7 +69,7 @@ export async function ClearProducts(){
 }
 
 export async function UpdateProductQuantity(id:string,count:number){
-    const token: any = await getUserToken();
+    const token = await getUserToken();
   if (!token) {
     throw new Error("token Error");
   }
@@ -79,7 +79,7 @@ export async function UpdateProductQuantity(id:string,count:number){
         "count": count
        }),
        headers:{
-         token: token,
+         token: token as string,
          "content-type": "application/json",
        }
    })

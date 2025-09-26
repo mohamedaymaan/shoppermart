@@ -26,7 +26,7 @@ export default function ResetCode() {
   const ResetCodeSchema = z.object({
     resetCode: z.string().nonempty("Resetcode is Required"),
   });
-  let ResetForm = useForm({
+  const ResetForm = useForm({
     defaultValues: {
       resetCode: "",
     },

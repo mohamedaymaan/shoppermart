@@ -30,7 +30,7 @@ export default function ResetPassword() {
         "Enter Valid Password"
       ),
   });
-  let ResetPasswordForm = useForm({
+  const ResetPasswordForm = useForm({
     defaultValues: {
       email: "",
       newPassword: "",

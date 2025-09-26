@@ -28,7 +28,7 @@ export default function CheckoutSession() {
       .regex(/(\+2)?^01[0125][0-9]{8}$/, "Enter Valid Phone"),
     city: z.string().nonempty("City is Required"),
   });
-  let checkoutForm = useForm({
+  const checkoutForm = useForm({
     defaultValues: {
       details: "",
       phone: "",

@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { ProductItem } from "@/types/productDetails.type";
 import Image from "next/image";
 import React from "react";
@@ -12,7 +11,6 @@ export default function ProductDetailsCard({
   product: ProductItem;
 }) {
   const {
-    imageCover,
     ratingsQuantity,
     title,
     ratingsAverage,
