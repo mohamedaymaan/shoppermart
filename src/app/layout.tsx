@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import "@fortawesome/fontawesome-free/css/all.css";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Toaster } from "@/components/ui/sonner";
+import Navbar from "./_Component/Navbar/Navbar";
+import Footer from "./_Component/Footer/Footer";
+import UserProvider from "@/UserProvider";
+import CountProvider from "@/CountProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <UserProvider>
+          <CountProvider>
+            <Navbar />
+            <main className="p-5">{children}</main>
+            <Toaster />
+            {/* <Footer /> */}
+          </CountProvider>
+        </UserProvider>
       </body>
     </html>
   );
