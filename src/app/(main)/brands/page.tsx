@@ -6,5 +6,11 @@ export default async function page() {
   const x = await getServerSession(NextOptions);
   console.log(x);
 
-  return <div>page</div>;
+  return (
+    <>
+      <div className="flex justify-center items-center">
+        <div className="text-6xl text-main">Pending..........</div>
+      </div>
+    </>
+  );
 }
